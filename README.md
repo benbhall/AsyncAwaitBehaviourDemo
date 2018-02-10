@@ -1,6 +1,6 @@
 # AsyncAwaitBehaviourDemo
 
-Simple demo to accompany an article on (my blog) [http://benhall.io/], which I wrote to help junior .NET developers understand the behaviour of async/await. 
+Simple demo to accompany an article on (my blog)[http://benhall.io/], which I wrote to help junior .NET developers understand the behaviour of async/await. 
 
 Just a console application that calls two similar methods, which both in turn call a pretend long running operation.
 
