@@ -8,7 +8,7 @@ Just a console application that calls two similar methods, which both in turn ca
 
 The aim here is to counter the surprisingly common misconception: that awaiting will create a thread that excutes the awaited method **in parallel** to the rest of the code continuing. When running this, expect the await to cause the code to block any continutation of MethodWithAwait() until the method we are waiting on is complete:
 
-![Animated GIF of async await demo](https://github.com/benbhall/AsyncAwaitBehaviourDemo/async_demo.gif).
+![Animated GIF of async await demo](https://github.com/benbhall/AsyncAwaitBehaviourDemo/blob/master/async_demo.gif).
 
 ### MethodWithoutAwait()
 
