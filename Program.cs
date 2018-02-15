@@ -6,7 +6,6 @@ namespace AsyncAwaitBehaviourDemo
 {
     internal class Program
     {
-
         private static void Main(string[] args)
         {
             // Demo 1
@@ -23,7 +22,7 @@ namespace AsyncAwaitBehaviourDemo
         }
 
         private static async Task WithAwaitAtCallAsync()
-        {   
+        {
             Console.WriteLine(" WithAwaitAtCallAsync() entered.");
 
             Console.WriteLine(" Awaiting when I call LongOperation().");
