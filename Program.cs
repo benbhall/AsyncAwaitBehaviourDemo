@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace AsyncAwaitBehaviourDemo
 {
@@ -8,33 +9,39 @@ namespace AsyncAwaitBehaviourDemo
 
         private static void Main(string[] args)
         {
+            // Demo 1
             Console.WriteLine(" Demo 1: Awaiting call to long operation:");
-            MethodWithAwait().Wait();
+            Task withAwaitAtCallTask = WithAwaitAtCallAsync();
+            withAwaitAtCallTask.Wait();
 
+            // Demo 2
             Console.WriteLine(" Demo 2: NOT awaiting call to long operation:");
-            MethodWithoutAwait().Wait();
+            Task withoutAwaitAtCallTask = WithoutAwaitAtCallAsync();
+            withoutAwaitAtCallTask.Wait();
 
             Console.ReadKey();
         }
 
-        private static async Task MethodWithAwait()
-        {
-            Console.WriteLine(" MethodWithAwait() entered.");
+        private static async Task WithAwaitAtCallAsync()
+        {   
+            Console.WriteLine(" WithAwaitAtCallAsync() entered.");
 
-            Console.WriteLine(" Awaiting call to LongOperation().");
+            Console.WriteLine(" Awaiting when I call LongOperation().");
             await LongOperation();
 
-            Console.WriteLine(" Pretending to do other work in MethodWithAwait()...");
+            Console.WriteLine(" Pretending to do other work in WithAwaitAtCallAsync().");
         }
 
-        private static async Task MethodWithoutAwait()
+        private static async Task WithoutAwaitAtCallAsync()
         {
-            Console.WriteLine(" MethodWithoutAwait() entered.");
+            Console.WriteLine(" WithoutAwaitAtCallAsync() entered.");
 
             Console.WriteLine(" Call made to LongOperation() with NO await.");
             Task task = LongOperation();
 
-            Console.WriteLine(" Do some other work in MethodWithoutAwait() after calling LongOperation()...");
+            Console.WriteLine(" Do some other work in WithoutAwaitAtCallAsync() after calling LongOperation().");
+
+            await task;
         }
 
         private static async Task LongOperation()
